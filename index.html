@@ -1,0 +1,155 @@
+<html>
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+<script src="frontend/jquery.min.js"></script>
+<script src="frontend/client.js"></script>
+<script src="frontend/un_loader.js"></script>
+<link rel="stylesheet" type="text/css" href="frontend/style.css">
+<script>if (window.module) module = window.module;</script>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>AGTool</title>
+</head>
+<body>
+<h1><h1><br />
+<div id="top" style="-webkit-app-region: drag">
+<img src="big_icon.png" style="-webkit-app-region: drag">
+</div>
+<div id="left">
+	<div class="button" id="exit">EXIT</div>
+	<br /><br />
+	<div id="preset_txt"><br />PRESET LIST</div>
+	<select id="preset" class="bbox" style="width:100%;">
+	</select><br /><br />
+	<button type="button" class="button" id="load_as_preset">Load</button>
+	<button type="button" class="button" id="delete_preset">Delete</button>
+	<button type="button" class="button" id="save_as_preset">Save As</button>&nbsp;<input class="bbox" style="width:150px;" id="preset_name" placeholder="preset name to be saved">
+</div>
+<div id="right">
+	<div class="un_loader">
+		<div id="household_txt">HOUSEHOLD_LOCATION</div>
+		<select id="household" multiple class="abox">
+			<option value="HH_All" selected>-</option>
+			<option value="HH_SouthSudan">SouthSudan</option>
+			<option value="HH_Uganda">Uganda</option>
+		</select>
+		<br /><br />
+		<div id="household_rid_txt">HOUSEHOLD_RID</div><input class="abox" id="household_rid" placeholder="Optional">
+		<br /><br />
+		<input type="radio" name="eat" id="radio_food" value="food" checked>Food
+		<input type="radio" name="eat" id="radio_nutri" value="nutri">Nutrition
+
+		<div id="foodgroup_txt"><br />FOOD_GROUP</div>
+		<select id="foodgroup" multiple class="abox">
+			<option value="Food_All" selected>-</option>
+			<option value="Food_Fats">Fats</option>
+			<option value="Food_Pulses">Pulses</option>
+			<option value="Food_Dairy">Dairy</option>
+			<option value="Food_Sugars">Sugars</option>
+			<option value="Food_Condiments">Condiments</option>
+			<option value="Food_Condiments_Tea">Condiments_Tea</option>
+			<option value="Food_Condiments_Salt">Condiments_Salt</option>
+			<option value="Food_Condiments_Salt_UnfortifiedSalt">Condiments_Salt_UnfortifiedSalt</option>
+			<option value="Food_Condiments_Salt_FortifiedSalt">Condiments_Salt_FortifiedSalt</option>
+			<option value="Food_Staples">Staples</option>
+			<option value="Food_Staples_Tubers">Staples_Tubers</option>
+			<option value="Food_Staples_FlourBased">Staples_FlourBased</option>
+			<option value="Food_Staples_FlourBased_UnfortifiedFlour">Staples_FlourBased_UnfortifiedFlour</option>
+			<option value="Food_Staples_FlourBased_FortifiedFlour">Staples_FlourBased_FortifiedFlour</option>
+			<option value="Food_Staples_Cereals">Cereals</option>
+			<option value="Food_FruitsVeg">FruitsVeg</option>
+			<option value="Food_FruitsVeg_Vegetables">FruitsVeg_Vegetables</option>
+			<option value="Food_FruitsVeg_Vegetables_VegDarkGreen">FruitsVeg_Vegetables_VegDarkGreen</option>
+			<option value="Food_FruitsVeg_Vegetables_VegVitA">FruitsVeg_Vegetables_VegVitA</option>
+			<option value="Food_FruitsVeg_Vegetables_OtherVeg">FruitsVeg_Vegetables_OtherVeg</option>
+			<option value="Food_FruitsVeg_Fruits">FruitsVeg_Fruits</option>
+			<option value="Food_FruitsVeg_Fruits_VitA">FruitsVeg_OtherFruits</option>
+			<option value="Food_Proteins">Proteins</option>
+			<option value="Food_Proteins_Eggs">Proteins_Eggs</option>
+			<option value="Food_Proteins_Insects">Proteins_Insects</option>
+			<option value="Food_Proteins_FishAndMeat">Proteins_FishAndMeat</option>
+			<option value="Food_Proteins_FishAndMeat_Fish">Proteins_FishAndMeat_Fish</option>
+			<option value="Food_Proteins_FishAndMeat_Meat">Proteins_FishAndMeat_Meat</option>
+			<option value="Food_Proteins_FishAndMeat_Meat_FleshMeat">Proteins_FishAndMeat_Meat_FleshMeat</option>
+			<option value="Food_Proteins_FishAndMeat_Meat_OrganMeat">Proteins_FishAndMeat_Meat_OrganMeat</option>
+		</select>
+		<div id="nutritiongroup_txt"><br />NUTRITION_TYPE</div>
+		<select id="nutritiongroup" multiple class="abox">
+			<option value="Nutrition_All" selected>-</option>
+			<option value="Nutrition_VitaminA">VitaminA</option>
+			<option value="Nutrition_HemIron">HemIron</option>
+			<option value="Nutrition_NutrimentSupplement">NutrimentSupplement</option>
+			<option value="Nutrition_Proteins">Proteins</option>
+			</option>
+		</select>
+		<br /><br />
+		<div id="type_txt">TYPE</div>
+		<select id="type" class="abox">
+			<!--<option value="Type_All" selected>-</option>-->
+			<option value="Type_Expended" selected>Expended</option>
+			<option value="Type_Consumed_1d">Consumed_1d</option>
+			<option value="Type_Consumed_7d">Consumed_7d</option>
+			</option>
+		</select>
+		<br /><br />
+		<span id="sourcetype_txt">SOURCE_TYPE</span>&nbsp;<span class="green_small_txt">(Purchased and NonPurchased cannot be both selected)</span><br />
+		<select multiple id="source" class="abox">
+			<option value="Source_All" selected>-</option>
+			<option value="Source_Purchased">Purchased</option>
+			<option value="Source_Purchased_RoadSideVendor">Purchased_RoadSideVendor</option>
+			<option value="Source_Purchased_LocalMarket">Purchased_LocalMarket</option>
+			<option value="Source_Purchased_CentralMarket">Purchased_CentralMarket</option>
+			<option value="Source_NonPurchased">NonPurchased</option>
+			<option value="Source_NonPurchased_SocialSafetyNets">NonPurchased_SocialSafetyNets</option>
+			<option value="Source_NonPurchased_Begging">NonPurchased_Begging</option>
+			<option value="Source_NonPurchased_SelfProduction">NonPurchased_SelfProduction</option>
+			<option value="Source_NonPurchased_SelfProduction_Farming">NonPurchased_SelfProduction_Farming</option>
+			<option value="Source_NonPurchased_SelfProduction_FishHuntGather">NonPurchased_SelfProduction_FishHuntGather</option>
+			<option value="Source_NonPurchased_SupportFromFamilyFriends">NonPurchased_SupportFromFamilyFriends</option>
+			<option value="Source_NonPurchased_SupportFromFamilyFriends_Gifts">NonPurchased_SupportFromFamilyFriends_Gifts</option>
+			<option value="Source_NonPurchased_SupportFromFamilyFriends_BorrowFromFamilyFriends">NonPurchased_SupportFromFamilyFriends_BorrowFromFamilyFriends</option>
+			<option value="Source_NonPurchased_Bartering">NonPurchased_Bartering</option>
+			<option value="Source_NonPurchased_Bartering_PaymentforLabor">NonPurchased_Bartering_PaymentforLabor</option>
+			<option value="Source_NonPurchased_Bartering_ExchangeforGoodsServices">NonPurchased_Bartering_ExchangeforGoodsServices</option>
+		</select>
+		<br /><br />
+		<span id="purchasetype_txt">PURCHASE_TYPE</span>&nbsp;<span class="green_small_txt">(Expenditure-only)</span><br />
+		<select multiple id="purchase" class="abox">
+			<option value="Purchase_All" selected>-</option>
+			<option value="Purchase_Cash">Cash</option>
+			<option value="Purchase_Credit">Credit</option>
+			<option value="Purchase_Credit_CashCredit">CashCredit</option>
+			<option value="Purchase_Credit_inKindCredit">inKindCredit</option>
+			<option value="Purchase_NonPurchased">NonPurchased</option>
+			</option>
+		</select>
+		<br /><br />
+		<div id="column_txt">COLUMNS</div>
+		<select multiple id="column" class="abox">
+			<option value="Col_Household">Household</option>
+			<option value="Col_ExpCon">Expenditure/Consumption</option>
+			<option value="Col_FoodNutrition">Food/Nutrition</option>
+			<option value="Col_SourceType">Source Type</option>
+			<option value="Col_PurchaseType">Purchase Type (Expenditure-only)</option>
+			</option>
+		</select>
+		<br /><br />
+		<div id="orderby_txt">ORDER BY</div>
+		<select id="hhord" class="abox">
+			<option value="Ord_HHID_NOORD" selected>Household ID (No_order)</option>
+			<option value="Ord_HHID_ASC">Household ID (ASC)</option>
+			<option value="Ord_HHID_DESC">Household ID (DESC)</option>
+		</select>
+		<br />
+		<select id="conexpord" class="abox">
+			<option value="Ord_CONEXP_NOORD" selected>Consumption/Expenditure (No_order)</option>
+			<option value="Ord_CONEXP_ASC">Consumption/Expenditure (ASC)</option>
+			<option value="Ord_CONEXP_DESC">Consumption/Expenditure (DESC)</option>
+		</select>
+		<br /><br /><p><textarea name="statement" id="statement"></textarea></p>
+		<button type="button" class="button" id="copy">Copy</button>
+		<button type="button" class="button" id="reset">Reset</button>
+	</div>
+</div>
+</body>
+</html>

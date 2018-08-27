@@ -1,0 +1,13 @@
+{
+  "name": "Cypher Creator",
+  "version": "1.0.0",
+  "main": "backend.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.7.3"
+  },
+  "scripts": {
+    "rebuild-modules": "electron-rebuild"
+  }
+}
